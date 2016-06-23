@@ -25,24 +25,13 @@
 
 				<div class="row">
 					<div class="span11">
-						<!--<h2>{{event.name}}</h2>-->
-						<h2 ng-class="myclass" ng-bind-template="{{event.name}} {{event.date}}"></h2>
+						<h2>{{event.name | uppercase}}</h2>
 					</div>
 				</div>
 
-				<button class="btn" ng-disabled="buttonDisabled">Disabled</button>
-
-				<div ng-non-bindable>{{1 + 2 }}</div>
-
-				<div ng-bind-html-unsafe="snippet">some title</div>
-				<div ng-bind-html="snippet">some title</div>
-
-				<h2 ng-show="boolValue">Show This</h2>
-				<h2 ng-hide="boolValue">Hide This</h2>
-
 				<div class="row">
 					<div class="span3">
-						<div><strong>Date:</strong> {{event.date}}</div>
+						<div><strong>Date:</strong> {{event.date | date:medium}}</div>
 						<div><strong>Time:</strong> {{event.time}}</div>
 					</div>
 					<div class="span4">
@@ -53,11 +42,30 @@
 					</div>
 				</div>
 
+
+				<div>{{ 3.1415926535 | number:2 }}</div>
+				<div>{{ {a:3, b:'hi', c:{aa:35} } | json }}</div>
+
 				<hr />
 
 				<h3>Sessions</h3>
+
+				Order By:
+				<select ng-model="sortorder" class="input-small" >
+					<option selected value="name">Name</option>
+					<option value="-upVoteCount">Votes</option>
+				</select>
+
+				Show:
+				<select ng-model="query.level" class="input-medium" >
+					<option selected value="">All</option>
+					<option selected value="introductory">Introductory</option>
+					<option selected value="intermediate">Intermediate</option>
+					<option selected value="advanced">Advanced</option>
+				</select>
+
 				<ul class="thumbnails">
-					<li ng-repeat="session in event.sessions">
+					<li ng-repeat="session in event.sessions | orderBy:sortorder | limitTo:2 | filter:query">
 						
 						<div class="row session">
 

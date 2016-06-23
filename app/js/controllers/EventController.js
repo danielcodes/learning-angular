@@ -4,17 +4,12 @@ eventsApp.controller('EventController',
 	//a controller creates scope, pass in empty scope?
 	function EventController($scope){
 
-		$scope.snippet = '<span style="color:red;">hi there</span>';
-		$scope.boolValue = false;
-		$scope.mystyle = {color: 'red'};
-		$scope.myclass = "blue";
-		$scope.buttonDisabled = true;
+		$scope.sortorder = 'name';
 
 		//objects in scope become available to the controller
-		//event item
 		$scope.event = {
 			name: 'Angular Boot Camp',
-			date: '1/1/2013',
+			date: 1359781015626,
 			time: '10:30 am',
 			location: {
 				address: 'Google Headquarters',
@@ -24,7 +19,7 @@ eventsApp.controller('EventController',
 			imageUrl: '/img/angularjs-logo.png',
 			sessions: [
 				{
-					name: 'Directives Masterclass',
+					name: 'Directives Masterclass introductory',
 					creatorName: 'Bob Smith',
 					duration: '1 hr',
 					level: 'Advanced',

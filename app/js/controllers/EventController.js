@@ -4,6 +4,11 @@ eventsApp.controller('EventController',
 	//a controller creates scope, pass in empty scope?
 	function EventController($scope){
 
+		$scope.snippet = '<span style="color:red;">hi there</span>';
+		$scope.boolValue = false;
+		$scope.mystyle = {color: 'red'};
+		$scope.myclass = "blue";
+
 		//objects in scope become available to the controller
 		//event item
 		$scope.event = {

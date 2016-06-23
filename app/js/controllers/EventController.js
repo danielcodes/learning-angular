@@ -8,6 +8,7 @@ eventsApp.controller('EventController',
 		$scope.boolValue = false;
 		$scope.mystyle = {color: 'red'};
 		$scope.myclass = "blue";
+		$scope.buttonDisabled = true;
 
 		//objects in scope become available to the controller
 		//event item

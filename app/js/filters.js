@@ -15,3 +15,20 @@ eventsApp.filter('durations', function(){
 		}	
 	};
 });
+
+eventsApp.filter('levels', function(){
+	return function(level){
+		
+		var icon = '<i class="icon-play"></i>';
+
+		switch(level){
+			case 'Introductory':
+				return icon;
+			case 'Intermediate':
+				return icon + icon;
+			case 'Advanced':
+				return icon + icon + icon;
+		}
+
+	}
+});

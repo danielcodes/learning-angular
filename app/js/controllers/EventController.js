@@ -7,8 +7,12 @@ eventsApp.controller('EventController',
 
 		$scope.sortorder = 'name';
 
-		//objects in scope become available to the controller
-		$scope.event = eventData.event;
+		//calling ajax service
+		//event data is the service, has data in event
+		eventData.getEvent(function(event){
+			$scope.event = event;	
+			console.log('the event is ', event);
+		});
 
 		$scope.upVoteSession = function(session){
 			session.upVoteCount++;	

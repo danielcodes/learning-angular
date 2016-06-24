@@ -8,14 +8,11 @@ eventsApp.controller('EventController',
 		$scope.sortorder = 'name';
 
 		//this takes over the success, error nonsense
+		//got back a resource
 		eventData.getEvent()
-			.success(function(event){ $scope.event = event; })
-			.error(function(data, status, headers, config){
-				$log.warn(data, status, headers, config);
-			});
-
-				
-
+			.$promise
+			.then( function(event){ $scope.event = event; console.log(event);	})
+			.catch(function(response){ console.log(response);	});
 
 		$scope.upVoteSession = function(session){
 			session.upVoteCount++;	

@@ -19,14 +19,19 @@ eventsApp.factory('eventData', function($resource){
 			console.log('the highestId is ', highestId.get());
 
 			//call GET on the resource and pass a callback that takes the id
-			highestId.get(function(data){
-				//done through a cb, cus I don't know promises, yet	
-				
-				console.log('the is is ', data.id);
+			//can I wrap this in a promise?
+			//super stumped here
+			highestId.get()
+				.$promise
+				.then(function(response){
+					console.log('the is is ', data.id);
+					event.id = response.id;
+				})
+				.catch(function(response){ 
+					console.log('failure', response) 
+				});
 
-			});
-
-			
+						
 			event.id = 999;
 
 			//this broke the promise like usage in the controller, oh

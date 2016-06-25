@@ -7,6 +7,7 @@ eventsApp.controller('EditEventController',
 			if(newEventForm.$valid){
 
 				//calling the service
+				//the response just returns back the event
 				eventData.save(event)
 					.$promise
 					.then( function(response) { console.log('success', response) })

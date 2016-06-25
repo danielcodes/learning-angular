@@ -23,7 +23,7 @@ module.exports.save = function(req, res){
 };
 
 //return back the highest eventID
-module.exports.getHighestId = function(){
+module.exports.getHighestId = function(req, res){
 	
 	var files = fs.readdirSync('app/data/event/');
 	//console.log(files);
@@ -35,8 +35,7 @@ module.exports.getHighestId = function(){
 	var highestId = Math.max.apply(null, ids);
 
 	//send the id back
-	return highestId;
+	res.send({id: highestId});
 };
-
 
 

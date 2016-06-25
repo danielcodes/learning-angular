@@ -15,8 +15,10 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 //get and post for event data
+console.log('the events are ', events);
 app.get('/data/event/:id', events.get);
 app.post('/data/event/:id', events.save);
+app.get('/data/highestEventId', events.getHighestId);
 
 
 app.listen(8000);

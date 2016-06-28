@@ -24,7 +24,7 @@ eventsApp.factory('eventData', function($resource){
 			highestId.get()
 				.$promise
 				.then(function(response){
-					console.log('the is is ', data.id);
+					console.log('the is is ', response.id);
 					event.id = response.id;
 				})
 				.catch(function(response){ 

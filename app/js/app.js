@@ -29,6 +29,14 @@ var eventsApp = angular.module('eventsApp', ['ngSanitize', 'ngResource', 'ngRout
 					templateUrl: 'templates/EditProfile.html',
 					controller: 'EditProfileController'
 				});
+			$routeProvider.when('/about',
+				{
+					template: 'Created this app from the Pluralsight course, Angular Fundamentals',
+				});
 			$routeProvider.otherwise({redirectTo: '/events'});
 			$locationProvider.html5Mode(true);
 		});
+
+
+
+

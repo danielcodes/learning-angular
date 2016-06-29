@@ -5,7 +5,12 @@ eventsApp.directive('eventThumbnail', function($compile){
 	return {
 		restrict: 'E',
 		replace: true,
-		templateUrl: '/templates/directives/eventThumbnail.html'
+		templateUrl: '/templates/directives/eventThumbnail.html',
+		//an events needs to be passed
+		scope: {
+			//can also use @ and &
+			event: "=event"	
+		}
 	};
 });
 

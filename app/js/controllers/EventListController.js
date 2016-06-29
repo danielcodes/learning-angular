@@ -3,9 +3,11 @@
 eventsApp.controller('EventListController',
 	//a controller creates scope, pass in empty scope?
 	//the controller can take in services
-	function EventListController($scope, $location, eventData){
+	function EventListController($scope, $location, eventData, $route){
 
-		$scope.events = eventData.getAllEvents();
+		console.log($route.current);
+		//looking for the value from resolve
+		$scope.events = $route.current.locals.events;
 
 	}
 );

@@ -7,6 +7,7 @@ eventsApp.controller('EventController',
 
 		$scope.sortorder = 'name';
 		$scope.event = $route.current.locals.event;
+		console.log($route.current);
 
 		//accessing parameters from the route
 		/*eventData.getEvent($routeParams.eventId)*/

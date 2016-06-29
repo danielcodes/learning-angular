@@ -11,7 +11,13 @@ var eventsApp = angular.module('eventsApp', ['ngSanitize', 'ngResource', 'ngRout
 			$routeProvider.when('/events',
 				{
 					templateUrl: 'templates/EventList.html',
-					controller: 'EventListController'
+					controller: 'EventListController',
+					resolve: {
+						events: function(eventData){
+							//why does $promise have to be called?
+							return eventData.getAllEvents().$promise;
+						}
+					}
 				});
 			$routeProvider.when('/event/:eventId',
 				{
@@ -19,6 +25,7 @@ var eventsApp = angular.module('eventsApp', ['ngSanitize', 'ngResource', 'ngRout
 					controller: 'EventController',
 					//no idea whats going on here
 					resolve: {
+						//passing this event, which is a promise value
 						event: function($route, eventData){
 							return eventData.getEvent($route.current.pathParams.eventId).$promise;	
 						}	

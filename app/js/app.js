@@ -40,6 +40,11 @@ var eventsApp = angular.module('eventsApp', ['ngSanitize', 'ngResource', 'ngRout
 				{
 					template: 'Created this app from the Pluralsight course, Angular Fundamentals',
 				});
+			$routeProvider.when('/sampleDirective',
+				{
+					templateUrl: 'templates/SampleDirective.html',
+					controller: 'SampleDirectiveController'
+				});
 			$routeProvider.otherwise({redirectTo: '/events'});
 			$locationProvider.html5Mode(true);
 		});

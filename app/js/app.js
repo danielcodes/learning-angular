@@ -24,6 +24,11 @@ var eventsApp = angular.module('eventsApp', ['ngSanitize', 'ngResource', 'ngRout
 						}	
 					}
 				});
+			$routeProvider.when('/editProfile',
+				{
+					templateUrl: 'templates/EditProfile.html',
+					controller: 'EditProfileController'
+				});
 			$routeProvider.otherwise({redirectTo: '/events'});
 			$locationProvider.html5Mode(true);
 		});

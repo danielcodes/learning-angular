@@ -3,13 +3,12 @@
 eventsApp.controller('EventController',
 	//a controller creates scope, pass in empty scope?
 	//the controller can take in services
-	function EventController($scope, eventData, $log){
+	function EventController($scope, eventData, $routeParams){
 
 		$scope.sortorder = 'name';
 
-		//this takes over the success, error nonsense
-		//got back a resource
-		eventData.getEvent()
+		//accessing parameters from the route
+		eventData.getEvent($routeParams.eventId)
 			.$promise
 			.then( function(event){ $scope.event = event; console.log(event);	})
 			.catch(function(response){ console.log(response);	});

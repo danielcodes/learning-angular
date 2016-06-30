@@ -7,6 +7,7 @@ eventsApp.directive('greeting', function(){
 		return {
 			restrict: 'E',
 			replace: true,
+			priority: -1,
 			template: "<button class='btn' ng-click='sayHello()'>Say Hello</button>",
 			controller: 'GreetingController'
 		};
@@ -15,6 +16,8 @@ eventsApp.directive('greeting', function(){
 		return {
 			restrict: 'A',
 			require: 'greeting',
+			priority: -1,
+			terminal: true,
 			link: function(scope, elements, attrs, controller){
 				controller.addGreeting('hei');	
 			}
@@ -24,6 +27,7 @@ eventsApp.directive('greeting', function(){
 		return {
 			restrict: 'A',
 			require: 'greeting',
+			priority: -2,
 			link: function(scope, elements, attrs, controller){
 				controller.addGreeting('namaste');	
 			}

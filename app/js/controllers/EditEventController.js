@@ -6,6 +6,7 @@ eventsApp.controller('EditEventController',
 		$scope.saveEvent = function(event, newEventForm){
 			if(newEventForm.$valid){
 
+				console.log('the event is ', event);
 				//calling the service
 				eventData.save(event)
 					.$promise

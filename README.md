@@ -10,8 +10,8 @@
 #### Directives
 * [x] Focus directive, focus on said element when page loads. Can't seem do to get this one to work, adding the autofocus property seems to suffice.
 * [x] Save button click whenever enter is pressed on NewEvent
-* [ ] Replace event and session html with eventDetails and sessionThumbnail directives
-* [ ] Combine eventDate input element and date-picker directive into a date-input directive
+* [x] Replace event and session html with eventDetails and sessionThumbnail directives
+* [x] Combine eventDate input element and date-picker directive into a date-input directive
 
 
 

@@ -11,13 +11,14 @@ var eventsApp = angular.module('eventsApp', ['ngSanitize', 'ngResource', 'ngRout
 			$routeProvider.when('/events',
 				{
 					templateUrl: 'templates/EventList.html',
-					controller: 'EventListController',
+					controller: 'EventListController'
+					/*
 					resolve: {
 						events: function(eventData){
-							//why does $promise have to be called?
 							return eventData.getAllEvents().$promise;
 						}
 					}
+					*/
 				});
 			$routeProvider.when('/event/:eventId',
 				{

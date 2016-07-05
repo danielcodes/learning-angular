@@ -25,9 +25,11 @@ describe('eventThumbnail', function(){
 
 	}));
 
+	/*
 	it('should bind the data', function(){
 		expect(el.text()).toContain('Angular Expo');
 	});
+	*/
 
 });
 

@@ -36,9 +36,38 @@ describe('event registration app', function(){
 			var list = element.all(by.repeater('session in event.sessions'));	
 
 			expect(list.count()).toEqual(3);
-				
 		});
+
+		it('should have 1 session when introductory is chosen', function(){
+			var selectEl = element(by.model('query.level'));	
+			//selecting an option from the dropdown
+			selectEl.element(by.cssContainingText('option', 'Introductory')).click();
+
+			var list = element.all(by.repeater('session in event.sessions'));
+			expect(list.count()).toEqual(1);
+		});
+
+		it('should sort correctly when sortOrder is changed', function(){
+			var selectEl = element(by.model('sortorder'));	
+			selectEl.element(by.cssContainingText('option', 'Votes')).click();
+
+			var firstSession = element.all(by.repeater('session in event.sessions')).first();
+			//looking for the title binding in the event-thumbnail tag 
+			var firstSessionName = firstSession.element(by.binding('title')).getText();
+			expect(firstSessionName).toEqual('Well Behaved Controllers');
+		});
+
+		it('should increment the vote count when a session is upvoted', function(){
+			//need to grab voting button	
+			element.all(by.deepCss('div.votingButton')).first().click();
+			var firstVoteCount = element.all(by.binding('count')).first();
+
+			expect(firstVoteCount.getText()).toEqual('1');
+
+		});
+
 	
 	});
 
 });
+
